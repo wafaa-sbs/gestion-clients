@@ -18,12 +18,10 @@ namespace gestion_clients
             InitializeComponent();
         }
 
-        SqlConnection cnx = new SqlConnection(@"Data Source=DESKTOP-OEO7RV6;Initial Catalog=gestion-client;Integrated Security=True");
+        SqlConnection cnx = new SqlConnection(@"Data Source=DESKTOP-OEO7RV6\MSSQLSERVER01;Initial Catalog=gestion_client;Integrated Security=True");
         DataSet DS = new DataSet();      
         SqlDataAdapter DA;
-        DataView dv;
-
-        SqlDataAdapter vl;
+        
 
 
         private void label1_Click(object sender, EventArgs e)
@@ -39,18 +37,16 @@ namespace gestion_clients
         
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            // TODO: cette ligne de code charge les données dans la table 'gestion_cltDataSet.villes'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-            this.villesTableAdapter.Fill(this.gestion_cltDataSet.villes);
+            
             try
             {
                 DA = new SqlDataAdapter("Select * from clients", cnx);
-                vl = new SqlDataAdapter("Select villes from villes", cnx);
+                
                 DA.Fill(DS, "clients");
                 dtclient = DS.Tables["clients"];
-                vl.Fill(DS, "villes");
+                
                 dataGridView1.DataSource = DS.Tables["clients"];
-                //combo_villes.DataSource = DS.Tables["villes"];
-                dv = new DataView(dtclient);
+                
             }
             catch(Exception ex)
             {
@@ -174,6 +170,25 @@ namespace gestion_clients
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            if (cbville.Text.Length != 0)
+            {
+                DA = new SqlDataAdapter("Select * from clients where ville ='" + cbville.Text + "'", cnx);
+                DS.Tables["clients"].Clear();
+                DA.Fill(DS, "clients");
+                dataGridView1.DataSource = DS.Tables["clients"];
+            }
+            /*else if (txt_chercher.Text.Length != 0)
+            {
+
+                DA = new SqlDataAdapter("SELECT * FROM clients WHERE nom = '" + txt_chercher.Text + "'", cnx);
+                DS.Tables["clients"].Clear();
+                DA.Fill(DS, "clients");
+                dataGridView1.DataSource = DS.Tables["clients"];
+            }*/
         }
     }
 }

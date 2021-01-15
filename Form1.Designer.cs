@@ -50,8 +50,8 @@ namespace gestion_clients
             this.gestion_cltDataSet = new gestion_clients.gestion_cltDataSet();
             this.villesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.villesTableAdapter = new gestion_clients.gestion_cltDataSetTableAdapters.villesTableAdapter();
-            this.btn_trie = new System.Windows.Forms.Button();
             this.cbville = new System.Windows.Forms.ComboBox();
+            this.btn_search = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.villesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestion_cltDataSet)).BeginInit();
@@ -68,6 +68,7 @@ namespace gestion_clients
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.LavenderBlush;
             this.label1.Location = new System.Drawing.Point(14, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 20);
@@ -167,6 +168,7 @@ namespace gestion_clients
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.LavenderBlush;
             this.label2.Location = new System.Drawing.Point(14, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 20);
@@ -177,6 +179,7 @@ namespace gestion_clients
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.LavenderBlush;
             this.label3.Location = new System.Drawing.Point(14, 173);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 20);
@@ -186,6 +189,7 @@ namespace gestion_clients
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.LavenderBlush;
             this.label4.Location = new System.Drawing.Point(14, 232);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 20);
@@ -195,6 +199,7 @@ namespace gestion_clients
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.LavenderBlush;
             this.label5.Location = new System.Drawing.Point(14, 292);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 20);
@@ -220,18 +225,6 @@ namespace gestion_clients
             // 
             this.villesTableAdapter.ClearBeforeFill = true;
             // 
-            // btn_trie
-            // 
-            this.btn_trie.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_trie.BackgroundImage")));
-            this.btn_trie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_trie.Location = new System.Drawing.Point(772, 417);
-            this.btn_trie.Name = "btn_trie";
-            this.btn_trie.Size = new System.Drawing.Size(96, 30);
-            this.btn_trie.TabIndex = 19;
-            this.btn_trie.Text = "chercher";
-            this.btn_trie.UseVisualStyleBackColor = true;
-            this.btn_trie.Click += new System.EventHandler(this.btn_trie_Click);
-            // 
             // cbville
             // 
             this.cbville.FormattingEnabled = true;
@@ -245,24 +238,35 @@ namespace gestion_clients
             "meknes",
             "fes",
             "tanger"});
-            this.cbville.Location = new System.Drawing.Point(659, 383);
+            this.cbville.Location = new System.Drawing.Point(659, 393);
             this.cbville.Name = "cbville";
             this.cbville.Size = new System.Drawing.Size(209, 28);
             this.cbville.TabIndex = 20;
             this.cbville.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // btn_search
+            // 
+            this.btn_search.Location = new System.Drawing.Point(747, 453);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(120, 35);
+            this.btn_search.TabIndex = 21;
+            this.btn_search.Text = "chercher";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1014, 523);
+            this.Controls.Add(this.btn_search);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.cbville);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btn_trie);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -274,6 +278,7 @@ namespace gestion_clients
             this.Controls.Add(this.name);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.id);
+            this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load_1);
@@ -307,8 +312,8 @@ namespace gestion_clients
         private System.Windows.Forms.BindingSource villesBindingSource;
         private gestion_cltDataSetTableAdapters.villesTableAdapter villesTableAdapter;
         private System.Windows.Forms.BindingSource villesBindingSource1;
-        private System.Windows.Forms.Button btn_trie;
         private System.Windows.Forms.ComboBox cbville;
+        private System.Windows.Forms.Button btn_search;
     }
 }
 
